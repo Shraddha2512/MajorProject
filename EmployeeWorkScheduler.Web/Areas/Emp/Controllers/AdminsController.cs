@@ -26,6 +26,12 @@ namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
             return View(await _context.Admins.ToListAsync());
         }
 
+        // GET: Emp/Admins  (for Employees and Admins)
+        public async Task<IActionResult> Index2()
+        {
+            return View(await _context.Admins.ToListAsync());
+        }
+
         // GET: Emp/Admins/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -61,7 +67,7 @@ namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
             {
                 _context.Add(admin);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index2));
             }
             return View(admin);
         }

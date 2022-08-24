@@ -3,10 +3,13 @@
 @{
     ViewData["Title"] = "Create";
 }
+<br />
+<br />
+<br />
+<br />
+@*<h1>Create</h1>*@
 
-<h1>Create</h1>
-
-<h4>AssignedTask</h4>
+<h4>Assign Task</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,6 +21,7 @@
                        disabled="disabled" readonly="readonly" />
                 <span asp-validation-for="TaskId" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
@@ -35,8 +39,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
+
+                <select asp-for="Status" class="form-control">
+                    <option value="Assigned">Assigned</option>
+                    <option value="In-Process">In-Process</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Not-Completed">Not-Completed</option>
+                </select>
+                <span asp-validation-for="Status"></span>
+
             </div>
             <div class="form-group">
                 <label asp-for="StatusUpdateDate" class="control-label"></label>
@@ -45,8 +56,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Priority" class="control-label"></label>
-                <input asp-for="Priority" class="form-control" />
-                <span asp-validation-for="Priority" class="text-danger"></span>
+
+                <select asp-for="Priority" class="form-control">
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <span asp-validation-for="Priority"></span>
+
             </div>
             <div class="form-group">
                 <label asp-for="EmpId" class="control-label"></label>
@@ -71,7 +88,10 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
+<br />
+<br />
+<br />
+<br />
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -2,6 +2,7 @@ using EmployeeWorkScheduler.Web.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,16 +26,24 @@ namespace EmployeeWorkScheduler.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // NOTE: This should be the FIRST service registered in the ConfigureServices() method.
-            // Register Entity Framework Core Servies to use SQL Server
-            // Register the ApplicationDbContext as a Service that can be used using Dependency Injection (DI)
-            services.AddDbContext<ApplicationDbContext>((options) =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("MyDefaultConnectionString"));
-            });
+            //services.AddDbContext<ApplicationDbContext>((options) =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("MyDefaultConnectionString"));
+            //});
+            //services.AddRazorPages();
+            services
+             .AddDbContext<ApplicationDbContext>((options) =>
+             {
+                 options.UseSqlServer(Configuration.GetConnectionString("MyDefaultConnectionString"));
+             });
 
+            // Register the OWIN Identity Middleware
+            // to use the default IdentityUser and IdentityRole profiles
+            // and store the data in the ApplicationDbContext
+            services
+                .AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddRazorPages();
             services.AddRazorPages();
         }
 
@@ -57,6 +66,9 @@ namespace EmployeeWorkScheduler.Web
 
             app.UseRouting();
 
+
+            // Activate the OWIN Middleware to use Authentication and Authorization Services.
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

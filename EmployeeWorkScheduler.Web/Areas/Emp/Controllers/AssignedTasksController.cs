@@ -27,6 +27,13 @@ namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        // GET: Emp/AssignedTasks (for Employees)
+        public async Task<IActionResult> Index2()
+        {
+            var applicationDbContext = _context.AssignedTasks.Include(a => a.Admin).Include(a => a.Employee);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
         // GET: Emp/AssignedTasks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -121,7 +128,7 @@ namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index2));  //changes
             }
             ViewData["ManagerId"] = new SelectList(_context.Admins, "ManagerId", "ManagerId", assignedTask.ManagerId);
             ViewData["EmpId"] = new SelectList(_context.Employees, "EmpId", "EmpId", assignedTask.EmpId);
