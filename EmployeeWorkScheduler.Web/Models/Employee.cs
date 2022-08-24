@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Xml.Linq;
+using System.Text.Json.Serialization;
 
 namespace EmployeeWorkScheduler.Web.Models
 {
@@ -39,7 +40,7 @@ namespace EmployeeWorkScheduler.Web.Models
         public string ImageUrl { get; set; } = null;
 
         #region navigation to AssignedTasks model
-
+        [JsonIgnore]
         public ICollection<AssignedTask> AssignedTasks { get; set; }
 
         #endregion

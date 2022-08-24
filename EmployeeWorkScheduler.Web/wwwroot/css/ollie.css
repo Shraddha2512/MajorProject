@@ -2289,6 +2289,7 @@ textarea.form-control {
 }
 
 .btn {
+    align-items:center;
     display: inline-block;
     font-weight: 400;
     color: #212529;
@@ -2338,6 +2339,7 @@ fieldset:disabled a.btn {
     color: #fff;
     background-color: #f06161;
     border-color: #f06161;
+    align-items:center;
 }
 
     .btn-primary:hover {
@@ -6442,7 +6444,7 @@ a.close.disabled {
     padding: 0.5rem 0.75rem;
     color: #212529;
 }
-
+/*
 .carousel {
     position: relative;
 }
@@ -6667,7 +6669,7 @@ a.close.disabled {
     color: #fff;
     text-align: center;
 }
-
+*/
 @-webkit-keyframes spinner-border {
     to {
         -webkit-transform: rotate(360deg);
@@ -11644,7 +11646,7 @@ pre {
     position: relative;
     height: 100vh;
     min-height: 600px;
-    background-image: url(../imgs/header.jpg);
+    background-image: url(../imgs/Background2.png);
     background-size: cover;
     background-position: center;
     display: -webkit-box;
@@ -11656,9 +11658,13 @@ pre {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
+    background-color:white;
 }
 
-    .header .overlay {
+
+
+
+  /*  .header .overlay {
         position: absolute;
         top: 0;
         left: 0;
@@ -11666,7 +11672,7 @@ pre {
         height: 100%;
         background: #2C3E50;
         opacity: .9;
-    }
+    }*/
 
     .header .carousel {
         -webkit-box-flex: 1;
@@ -11688,9 +11694,10 @@ pre {
     }
 
         .header .carousel .carousel-inner .carousel-title {
-            font-size: calc(40px + (60 - 40) * ((100vw - 300px) / (1300 - 300)));
-            font-weight: bold;
+            font-size: 10px;
+            font-weight: normal;
             margin-bottom: 1.5rem;
+            text-align:center;
         }
 
         .header .carousel .carousel-inner .btn {
@@ -11747,4 +11754,53 @@ pre {
 
 
     /* *8888888888*/
+
+
+
+.sub-title-paragraph.h4 {
+    color: #212529;
+}
+
+.section.container.section-title-line {
+    background: #ececec;
+    content: "";
+    height: 1px;
+    position: absolute;
+    left: calc(50% - 87px);
+    width: 175px;
+}
+
+
+//carousel cards
+
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card {
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    border-radius: 0;
+}
+
+.carousel-inner {
+    padding: 1em;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: #e1e1e1;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
 

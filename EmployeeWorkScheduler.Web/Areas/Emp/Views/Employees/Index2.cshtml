@@ -63,7 +63,7 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
+                    <img class="card-img-top" src="@item.ImageUrl" style="width:12rem;height:14rem;">
             </td>
            @* <td>
                 <a asp-action="Edit" asp-route-id="@item.EmpId">Edit</a> |

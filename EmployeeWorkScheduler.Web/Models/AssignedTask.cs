@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
+using System.Text.Json.Serialization;
 
 namespace EmployeeWorkScheduler.Web.Models
 {
@@ -36,7 +37,7 @@ namespace EmployeeWorkScheduler.Web.Models
 
 
         #region navigation to Employee and Admin Models
-
+        [JsonIgnore]
         [Required(ErrorMessage = "Please select the Employee ID !")]
         [Display(Name = "Employee ID")]
         virtual public int EmpId { get; set; }
@@ -44,6 +45,7 @@ namespace EmployeeWorkScheduler.Web.Models
         [ForeignKey(nameof(AssignedTask.EmpId))]
         public Employee Employee { get; set; }
 
+        [JsonIgnore]
         [Required(ErrorMessage = "Please select the Manager ID !")]
         [Display(Name = "Manager ID")]
         virtual public int ManagerId { get; set; }

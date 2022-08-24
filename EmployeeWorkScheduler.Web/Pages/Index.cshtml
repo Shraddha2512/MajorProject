@@ -70,14 +70,15 @@
 
 
     <header id="home" class="header">
-        <div class="overlay"></div>
-
+       
+      @*  <div class="overlay"></div>*@
+@*
         <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="container">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="carousel-caption d-none d-md-block">
-                            <h6 class="carousel-title">Time is the wisest counselor of all.<br />- Pericles</h6>
+                            <h2 class="carousel-title">Time is the wisest counselor of all.<br />- Pericles</h2>
                             <button class="btn btn-primary btn-rounded">Learn More</button>
                         </div>
                     </div>
@@ -94,8 +95,15 @@
                         </div>
                     </div>
                 </div>
+
+               
+
             </div>
-        </div>
+        </div>*@
+
+       
+        
+
 
        @* <div class="infos container mb-4 mb-md-2">
             <div class="title">
@@ -125,18 +133,63 @@
         </div>*@
     </header>
 
+   <br />
+   <br />
+
+
     <section class="section" id="about">
 
         <div class="container">
 
-            <div class="row align-items-center mr-auto">
+
+
+
+            <div class="about-us section-padding" data-scroll-index='1'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 section-title text-center">
+                            <h3>We Help Grow Your Productivity</h3>
+                            <p>-----------</p>
+                            <h7>If you have right set of mind, you can conquer the world. Cheers!</h7>
+                            <span class="section-title-line"></span>
+                        </div>
+                      
+                        <div class="col-md-6 mb-50">
+                            <div class="section-info">
+                                <div class="sub-title-paragraph">
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <h4>Scheduling is your friend</h4>
+                                   
+                                    <br />
+                                   
+                                    <p>You need to schedule your time and record that schedule so you know what you are doing and when you are doing it. It’s like a place for everything and everything in its place. You should determine what time of day you are most productive and make that the time when you get the most important tasks done. Use a planning tool and it shall work best for you. Make sure you look through your schedule on a daily basis.<br /><br />You have recorded what you do each day and know what you are dealing with. Now you can choose the most important tasks and put them at the top of your list in terms of priority.The best way to manage your time is to take time away from non-important tasks so you can focus on more important tasks, hopefully preventing them from becoming urgent. This will keep your urgent priorities to a minimum, reducing your stress.</p>
+                                </div>
+                               @* <a href="#" class="anchor-btn">Learn more <i class="fas fa-arrow-right pd-lt-10"></i></a>*@
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-50">
+                            <br />
+                            <div class="section-img"> <img src="~/imgs/slider-img.png" alt="" class="img-responsive" /> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+           @* <div class="row align-items-center mr-auto">
                 <div class="col-md-4">
                    
                     <h3 class="section-title">About Us</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sunt, unde aperiam aliquid quia repudiandae, ex harum quis amet delectus maxime, tempora possimus aut laboriosam magni corrupti labore. Doloremque, sit?</p>
 
                     <a href="javascript:void(0)">Read more...</a>
-                </div>
+                </div>*@
                @*@ <div class="col-sm-6 col-md-4 ml-auto">
                     <div class="widget">
                         <div class="icon-wrapper">
@@ -180,10 +233,12 @@
             </div>
         </div>
     </section>
-
-    <section class="section">
-        <div class="container">
-            <h6 class="xs-font mb-0">Blanditiis unde illum earum</h6>
+    <br />
+    <br />
+    <br />
+    @*<section class="section">*@
+           <div class="container">
+           @* <h6 class="xs-font mb-0">Blanditiis unde illum earum</h6>
             <h3 class="section-title mb-4">Expertises</h3>
 
             <div class="row text-center">
@@ -214,7 +269,107 @@
                         </span>
                     </a>
                 </div>
+            </div>*@
+
+
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="cards-wrapper">
+                            <div class="card">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card d-none d-md-block">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card d-none d-md-block">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="cards-wrapper">
+                            <div class="card">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card d-none d-md-block">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card d-none d-md-block">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="cards-wrapper">
+                            <div class="card">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card d-none d-md-block">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card d-none d-md-block">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
+
+
         </div>
     </section>
 
@@ -258,21 +413,22 @@
         </div>
     </section>*@
 
-
+    <br />
+    <br />
     <section class="section" id="testmonial">
         <div class="container">
-            <h6 class="xs-font mb-0">Culpa perferendis excepturi.</h6>
-            <h3 class="section-title">Testmonials</h3>
+            <h6 class="xs-font mb-0">Hear out from our</h6>
+            <h3 class="section-title">Leads</h3>
 
             <div id="owl-testmonial" class="owl-carousel owl-theme mt-4">
                 <div class="item">
                     <div class="textmonial-item">
-                        <img src="~/imgs/avatar1.jpg" class="avatar" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
+                        <img src="~/imgs/team-3.jpg" class="avatar" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
                         <div class="des">
                             <h5 class="ti-quote-left font-weight-bold"></h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ea facere voluptatum corrupti doloremque odit sequi labore rerum maiores libero.adipisicing elit. Vitae quasi voluptatem sed quaerat dolorum architecto reiciendis magni laboriosam, illum, nobis, quae dolor, ducimus libero! Sapiente deleniti sit dolor, ex possimus.</p>
+                            <p><strong>Start each day with a plan !</strong></p>
+                            <p>"Spend the first 30 minutes of each day, determining how you will spend the rest of it. Whether you use an application like ours or do or an old-fashioned pen and paper list, don’t start your work without a plan! Your plan should prioritize action items and estimate how long each item will take you." </p>
                             <h5 class="ti-quote-left text-right font-weight-bold"></h5>
-
                             <div class="line"></div>
                             <h6 class="name">Emma Re</h6>
                             <h6 class="xs-font">Full stack developer</h6>
@@ -281,11 +437,12 @@
                 </div>
                 <div class="item">
                     <div class="textmonial-item">
-                        <img src="~/imgs/avatar2.jpg" class="avatar" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
+                        <img src="~/imgs/tm3.jpg" class="avatar" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
                         <div class="des">
                             <h5 class="ti-quote-left font-weight-bold"></h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ea facere voluptatum corrupti doloremque odit sequi labore rerum maiores libero.adipisicing elit. Vitae quasi voluptatem sed quaerat dolorum architecto reiciendis magni laboriosam, illum, nobis, quae dolor, ducimus libero! Sapiente deleniti sit dolor, ex possimus.</p>
-                            <h5 class="ti-quote-left text-right font-weight-bold"></h5>
+                            <p><strong>Work-Life Balance.</strong></p>
+                            <p>"The first step in achieving work-life balance is determining just how much you have to do in a day. Knowing the work and personal tasks you are responsible for helps you understand where most of your day is going, as well as figure out whether you’re taking on too many responsibilities."</p>
+                                <h5 class="ti-quote-left text-right font-weight-bold"></h5>
 
                             <div class="line"></div>
                             <h6 class="name">John Doe</h6>
@@ -295,15 +452,16 @@
                 </div>
                 <div class="item">
                     <div class="textmonial-item">
-                        <img src="~/imgs/avatar3.jpg" class="avatar" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
+                        <img src="~/imgs/tm5.jpg" class="avatar" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
                         <div class="des">
                             <h5 class="ti-quote-left font-weight-bold"></h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ea facere voluptatum corrupti doloremque odit sequi labore rerum maiores libero.adipisicing elit. Vitae quasi voluptatem sed quaerat dolorum architecto reiciendis magni laboriosam, illum, nobis, quae dolor, ducimus libero! Sapiente deleniti sit dolor, ex possimus.</p>
+                            <p><strong>Avoid Excessive Overtime.</strong></p>
+                            <p>" Excessive overtime hours don’t necessarily mean that you are working harder than expected. It can also be poor time management throughout your day.Usually, the key is to work smarter, not harder. So leave the office on time, relax and spend time with family or friends." </p>
                             <h5 class="ti-quote-left text-right font-weight-bold"></h5>
 
                             <div class="line"></div>
                             <h6 class="name">Emily Roe</h6>
-                            <h6 class="xs-font">Freelancer</h6>
+                            <h6 class="xs-font">Senior Application Developer</h6>
                         </div>
                     </div>
                 </div>
@@ -311,6 +469,56 @@
         </div>
     </section>
 
+    <br />
+    <br />
+    <br />
+
+    <section class="section" id="about">
+
+        <div class="container">
+
+
+
+
+            <div class="about-us section-padding" data-scroll-index='1'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 section-title text-center">
+                            <h3>Make The Most Of Your Time !</h3>
+                            <p>-----------</p>
+                            <h7> Here are the best tips to make your time management strategy one that maximizes your potential !</h7>
+                           
+                             <span class="section-title-line"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-50">
+                            <div class="section-info">
+                                <div class="sub-title-paragraph">
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <h4>Assess how you spend your time.</h4>
+                                   <br />
+                                    <p>When you’re ready to determine how to make the most of your time and increase your productivity, you need to first understand how you currently spend your time. A useful tool is to create a time journal or time log.<br /> We all have days that are less productive, but our overall productivity should be high from one day to the next. You also need to have a good grasp on which methods of organization work best for you in terms of scheduling your time.</p>
+                                </div>
+                              @*  <a href="#" class="anchor-btn">Learn more <i class="fas fa-arrow-right pd-lt-10"></i></a>*@
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-50">
+                            <br />
+                            <br />
+                            <div class="section-img"> <img src="~/imgs/welcome3.png" alt="" class="img-responsive" /> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    </div>
+    </section>
+
+
+@*
     <section class="section bg-overlay">
 
         <div class="container">
@@ -341,9 +549,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>*@
 
-    <section class="section" id="blog">
+   @* <section class="section" id="blog">
 
         <div class="container mb-3">
             <h6 class="xs-font mb-0">Culpa perferendis excepturi.</h6>
@@ -371,7 +579,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>*@
     <br />
     <br />
     <br />

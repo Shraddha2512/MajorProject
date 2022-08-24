@@ -63,6 +63,7 @@ namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ManagerId,FirstName,LastName,Designation,Gender,Email,ImageUrl")] Admin admin)
         {
+            admin.Email = this.User.Identity.Name;
             if (ModelState.IsValid)
             {
                 _context.Add(admin);

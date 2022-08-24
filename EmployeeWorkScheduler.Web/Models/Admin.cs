@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
+using System.Text.Json.Serialization;
 
 namespace EmployeeWorkScheduler.Web.Models
 {
@@ -40,7 +41,7 @@ namespace EmployeeWorkScheduler.Web.Models
 
 
         #region navigation to AssignedTasks model
-
+        [JsonIgnore]
         public ICollection<AssignedTask> AssignedTasks { get; set; }
 
         #endregion
