@@ -51,8 +51,9 @@ namespace EmployeeWorkScheduler.Web
             // to use the default IdentityUser and IdentityRole profiles
             // and store the data in the ApplicationDbContext
             services
-               .AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             // Register the Razor View Engine to provide support for Razor Pages.
             // And Register the Authorization Policy to the Area OR Page pertaining to Razor Pages in the Area(s).

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EmployeeWorkScheduler.Web.Data;
 using EmployeeWorkScheduler.Web.Models;
+using Microsoft.Extensions.Logging;
 
 namespace EmployeeWorkScheduler.Web.Controllers
 {
@@ -15,31 +16,65 @@ namespace EmployeeWorkScheduler.Web.Controllers
     public class AssignedTasksController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<AssignedTasksController> _logger;  // changes
 
-        public AssignedTasksController(ApplicationDbContext context)
+
+        public AssignedTasksController(
+                   ApplicationDbContext context,
+                   ILogger<AssignedTasksController> logger)    //block changed
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: api/AssignedTasks
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AssignedTask>>> GetAssignedTasks()
+
+        public async Task<IActionResult> GetAssignedTasks()
         {
-            return await _context.AssignedTasks.ToListAsync();
+            try
+            {
+                var pc = await _context.AssignedTasks.ToListAsync(); // pc =  product categories
+                if (pc == null)
+                {
+                    _logger.LogWarning("No Tasks were found");
+                    return NotFound();
+                }
+                _logger.LogInformation("Extracted all the tasks");
+                return Ok(pc);
+            }
+            catch
+            {
+                _logger.LogError("Attempt made to retrieve information");
+                return BadRequest();
+            }
         }
 
-        // GET: api/AssignedTasks/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<AssignedTask>> GetAssignedTask(int id)
-        {
-            var assignedTask = await _context.AssignedTasks.FindAsync(id);
+        //public async Task<ActionResult<IEnumerable<AssignedTask>>> GetAssignedTasks()
+        //{
+        //    return await _context.AssignedTasks.ToListAsync();
+        //}
 
-            if (assignedTask == null)
+        // GET: api/AssignedTasks/5            // Third test here (block changed)
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetAssignedTask(int? id)
+        {
+            if (!id.HasValue)
             {
-                return NotFound();
+                return BadRequest();
+            }
+            try
+            {
+                var assignedtask = await _context.AssignedTasks.FindAsync(id);
+                if (assignedtask == null) { return NotFound(); }
+                return Ok(assignedtask);
+            }
+            catch
+            {
+                return BadRequest();
             }
 
-            return assignedTask;
+
         }
 
         // PUT: api/AssignedTasks/5
@@ -86,20 +121,32 @@ namespace EmployeeWorkScheduler.Web.Controllers
             return CreatedAtAction("GetAssignedTask", new { id = assignedTask.TaskId }, assignedTask);
         }
 
-        // DELETE: api/AssignedTasks/5
+        // DELETE: api/AssignedTasks/5        // Changes for delete test
         [HttpDelete("{id}")]
-        public async Task<ActionResult<AssignedTask>> DeleteAssignedTask(int id)
+        public async Task<ActionResult> DeleteAssignedTask(int? id)
         {
-            var assignedTask = await _context.AssignedTasks.FindAsync(id);
-            if (assignedTask == null)
+            if (!id.HasValue)
             {
-                return NotFound();
+                return BadRequest();
+            }
+            try
+            {
+                var issueAssignedTask = await _context.AssignedTasks.FindAsync(id);
+                if (issueAssignedTask == null)
+                {
+                    return NotFound();
+                }
+
+                _context.AssignedTasks.Remove(issueAssignedTask);
+                await _context.SaveChangesAsync();
+
+                return Ok(issueAssignedTask);
+            }
+            catch
+            {
+                return BadRequest();
             }
 
-            _context.AssignedTasks.Remove(assignedTask);
-            await _context.SaveChangesAsync();
-
-            return assignedTask;
         }
 
         private bool AssignedTaskExists(int id)
