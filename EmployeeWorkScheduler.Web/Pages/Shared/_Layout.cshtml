@@ -32,7 +32,7 @@
             <div class="container">*@
         <nav id="scrollspy" class="navbar navbar-light bg-light navbar-expand-lg fixed-top" data-spy="affix" data-offset-top="20">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Employee Work Scheduler</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><strong>EWS</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -54,19 +54,21 @@
                                    asp-area="Emp" asp-controller="AssignedTasks" asp-action="Index2">Assigned Tasks</a>
                                 <a class="dropdown-item"
                                    asp-area="Emp" asp-controller="Employees" asp-action="Index2">Employee Profiles</a>
-                                <a class="dropdown-item"
-                                   asp-area="Emp" asp-controller="Admins" asp-action="Index2">Admin Profiles</a>
+                               @* <a class="dropdown-item"
+                                   asp-area="Emp" asp-controller="Admins" asp-action="Index2">Admin Profiles</a>*@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Admin </a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Manager </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item"
                                    asp-area="Emp" asp-controller="Admins" asp-action="Create">Profile</a>
                                 <a class="dropdown-item"
-                                   asp-area="Emp" asp-controller="AssignedTasks" asp-action="Create">Assign Tasks</a>
+                                   asp-area="Emp" asp-controller="AssignedTasks" asp-action="Create">Assign Task</a>
                                 <a class="dropdown-item"
-                                   asp-area="Emp" asp-controller="Admins" asp-action="Index2">Admin Profiles</a>
+                                   asp-area="Emp" asp-controller="AssignedTasks" asp-action="Index">View Assigned Tasks</a>
+                                <a class="dropdown-item"
+                                   asp-area="Emp" asp-controller="Admins" asp-action="Index2"> Manager Profiles</a>
                                 <a class="dropdown-item"
                                    asp-area="Emp" asp-controller="Employees" asp-action="Index">Employee Profiles</a>
                             </div>
@@ -87,8 +89,11 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - EmployeeWorkScheduler.Web - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <a href="/swagger" target="_blank">Open API Documentation</a>
         </div>
     </footer>
+
+   
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

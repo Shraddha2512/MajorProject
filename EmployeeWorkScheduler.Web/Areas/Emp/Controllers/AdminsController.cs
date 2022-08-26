@@ -7,10 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmployeeWorkScheduler.Web.Data;
 using EmployeeWorkScheduler.Web.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
 {
     [Area("Emp")]
+    [Authorize(Roles = "AppAdmin")]
     public class AdminsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -68,7 +71,8 @@ namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
             {
                 _context.Add(admin);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index2));
+                //return RedirectToAction(nameof(Index2));
+                return RedirectToAction("Details", new { id = admin.ManagerId });
             }
             return View(admin);
         }

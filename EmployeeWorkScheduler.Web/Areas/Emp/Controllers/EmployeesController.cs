@@ -67,7 +67,8 @@ namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
             {
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index2));
+                //return RedirectToAction(nameof(Index2));
+                return RedirectToAction("Details", new { id = employee.EmpId });
             }
             return View(employee);
         }

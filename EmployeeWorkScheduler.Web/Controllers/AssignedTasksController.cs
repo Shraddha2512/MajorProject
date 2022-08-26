@@ -34,7 +34,7 @@ namespace EmployeeWorkScheduler.Web.Controllers
         {
             try
             {
-                var pc = await _context.AssignedTasks.ToListAsync(); // pc =  product categories
+                var pc = await _context.AssignedTasks.ToListAsync(); 
                 if (pc == null)
                 {
                     _logger.LogWarning("No Tasks were found");
