@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmployeeWorkScheduler.Web.Data;
 using EmployeeWorkScheduler.Web.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
 {
@@ -14,10 +15,12 @@ namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
     public class EmployeesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private UserManager<IdentityUser> _userManager;
 
-        public EmployeesController(ApplicationDbContext context)
+        public EmployeesController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Emp/Employees
@@ -65,7 +68,13 @@ namespace EmployeeWorkScheduler.Web.Areas.Emp.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userObj = await _userManager.GetUserAsync(this.User);
+                employee.Email = userObj.Email;
+
                 _context.Add(employee);
+
+                var myEmployees = _context.Admins.Where(c => c.Email == userObj.Email);
+
                 await _context.SaveChangesAsync();
                 //return RedirectToAction(nameof(Index2));
                 return RedirectToAction("Details", new { id = employee.EmpId });

@@ -58,11 +58,7 @@
                             @*  @Html.DisplayNameFor(model => model.Employee.EmpId)*@
                         </th>
                         <th col-index=9 bgcolor="lightgrey">
-                            Manager ID
-                            <select class="table-filter" onchange="filter_rows()">
-                                <option value="all">All</option>
-                            </select>
-                            @* @Html.DisplayNameFor(model => model.Admin.ManagerId)*@
+                             @Html.DisplayNameFor(model => model.Admin.ManagerId)
                         </th>
                         <th col-index=10 bgcolor="lightgrey">
                             @Html.DisplayNameFor(model => model.Comment)
@@ -74,7 +70,7 @@
 
                 <tbody>
                     @foreach (var item in Model){
-                       
+                      
                         
                             <tr>
                                 <td>
@@ -95,9 +91,18 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.StatusUpdateDate)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Priority)
-                                </td>
+                                @if (item.Priority == "High")
+                                {
+                                    <td style="background-color:red;color:white">
+                                        @Html.DisplayFor(modelItem => item.Priority)
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="background-color:green;color:white">
+                                        @Html.DisplayFor(modelItem => item.Priority)
+                                    </td>
+                                }
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Employee.EmpId)
                                 </td>
